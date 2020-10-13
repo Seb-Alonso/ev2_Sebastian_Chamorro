@@ -19,14 +19,14 @@ export default{
             <option value="10">10</option>
         </select><br/>
         <br/><br/><br/><br/>
-        <button>registrar</button><br/>
+        <button onclick="registrar()">registrar</button><br/>
         <div id="salida"></div>
 
     `,
     cargar:function(){
-        var salida = document.getElementById(salida);
+        var salida = document.getElementById("salida");
         var tabla =`
-        <table>
+        <table border='1' width='400'>
             <tr>
                 <th>alumno</th>
                 <th>puntaje</th>
@@ -43,36 +43,42 @@ export default{
                 </tr>
         `
         });
-        tabla += '</table>';
+        tabla += "</table>";
         salida.innerHTML = tabla;
         
     },
-    registar:function(){
-        var alumno = document.getElementById("");
+    registrar:function(){
+        var alumno = document.getElementById("alumno");
         var puntaje = document.getElementById("puntaje");
         var resultado = document.getElementById("resultado");
 
-        if(alumno.value == "" || puntaje == ""){
+        if(alumno.value==""||puntaje.value==""){
             alert("campos vacios")
         }
 
         if(puntaje.value>=0&&puntaje.valuea<=3){
-            resultado = 'MALO';
+            resultado.value = 'MALO';
         }
 
         if(puntaje.value>=4&&puntaje.valuea<=7){
-            resultado = 'REGULAR';
+            resultado.value = 'REGULAR';
         }
 
         if(puntaje.value>=8&&puntaje.valuea<=9){
-            resultado = 'BUENO';
+            resultado.value = 'BUENO';
         }
 
         if(puntaje.value==10){
-            resultado = 'MASTER';
+            resultado.value = 'MASTER';
         }
 
-        
-    },
+        var obj ={
+            alumno:alumno.value,
+            puntaje:puntaje.value,
+            resultado:resultado.value
+        };
+        this.puntajes.push(obj);
+        this.cargar();
+    }
 
 }
