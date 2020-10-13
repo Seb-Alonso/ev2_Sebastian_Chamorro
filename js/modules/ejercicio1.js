@@ -18,6 +18,7 @@ export default{
             <option value="9">9</option>
             <option value="10">10</option>
         </select><br/>
+        <br/><br/><br/><br/>
         <button>registrar</button><br/>
         <div id="salida"></div>
 
@@ -47,7 +48,31 @@ export default{
         
     },
     registar:function(){
+        var alumno = document.getElementById("");
+        var puntaje = document.getElementById("puntaje");
+        var resultado = document.getElementById("resultado");
 
+        if(alumno.value == "" || puntaje == ""){
+            alert("campos vacios")
+        }
+
+        if(puntaje.value>=0&&puntaje.valuea<=3){
+            resultado = 'MALO';
+        }
+
+        if(puntaje.value>=4&&puntaje.valuea<=7){
+            resultado = 'REGULAR';
+        }
+
+        if(puntaje.value>=8&&puntaje.valuea<=9){
+            resultado = 'BUENO';
+        }
+
+        if(puntaje.value==10){
+            resultado = 'MASTER';
+        }
+
+        
     },
 
 }
